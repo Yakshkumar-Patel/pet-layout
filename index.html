@@ -37,69 +37,31 @@
         
         :root {
             --primary-blue: #4a5568;
-            --accent-gold: #B8860B;
+            --accent-gold: #d69e2e;
             --text-dark: #2d3748;
         }
         
         body {
             /* Updated font family to use Sofia Pro with fallbacks */
-            font-family: 'Sofia Pro', sans-serif;
+            font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
         }
-        span.transtparent-font-social {
-            font-size: 50px;
-            font-weight: 600;
-            color: #00000026;
-            margin-left: 30px;
-        }
+        
         .bg-light-gray {
             background-color: #f7fafc;
         }
-        .bg-primary-blue {
-            background-image: url("assets/Group 427318023.png");
-            background-position: top;
-            background-repeat: no-repeat;
-        }
-        .bg-light-gray.py-5.sec-1 {
-            background-image: url("assets/asdasdsad.png");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin-top: -90px;
-        }
-        .bg-primary-blue.text-white.p-4.rounded {
-            padding: 160px 80px 60px !important
-        }
-        .container {
-            max-width: 80%;
-        }
+        
         .text-gold {
             color: var(--accent-gold);
         }
-        h2.fw-bold.mb-3.section-1-heading {
-            font-size: 40px;
-        }
-        .bg-light-gray.py-5.sec-1 .container {
-            margin-top: 110px;
-        }
-      .bg-gold.info-box-color-gold h5 {
-            font-weight: 400 !important;
-            font-size: 31px;
-            padding: 2px 6px;
-        }
-        .mb-2.info-box-txt {
-            color: #000;
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-        }
+        
         .bg-gold {
-        background-color: #B8860B;
-        }
-        nav.navbar.navbar-light.bg-white.py-3 {
-            background-color: transparent !important;
+            background-color: var(--accent-gold);
         }
         
+        .bg-primary-blue {
+            background-color: var(--primary-blue);
+        }
         
         .btn-gold {
             background-color: var(--accent-gold);
@@ -144,35 +106,28 @@
             font-size: 3rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
-        .people-box-text strong {
-            font-size: 35px;
-        }
+        
         .profile-pics {
             display: flex;
             margin-left: -10px;
         }
         
         .profile-pic {
+            border: 3px solid white;
             margin-left: -10px;
         }
         
         .highlight-box {
             background: linear-gradient(135deg, var(--accent-gold), #e6a532);
             color: white;
-            padding: 5px 6px;
+            padding: 8px 16px;
             display: inline-block;
             font-weight: bold;
             margin-bottom: 15px;
-            font-size: 35px;
         }
-        .circle {
-              border: 2px solid black;  
-              border-radius: 50%;       
-              padding: 2px 10px;         
-              display: inline-block;    
-            }
+        
         .checkmark {
-            color: var(--accent-gold) !important;
+            color: var(--accent-gold);
             margin-right: 10px;
         }
         
@@ -186,6 +141,211 @@
         .social-icons a:hover {
             color: var(--accent-gold);
         }
+        
+        /* Replaced basic chatbot styles with advanced MAC chatbot styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #d69e2e;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .chat-toggle:hover {
+            background-color: #b7791f;
+            transform: scale(1.05);
+        }
+        
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 400px;
+            max-height: 600px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background-color: #002147;
+            color: white;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-header h5 {
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .online-status {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chat-messages {
+            flex-grow: 1;
+            padding: 16px;
+            overflow-y: auto;
+            background-color: #f9fafb;
+            max-height: 300px;
+        }
+        
+        .message {
+            margin-bottom: 12px;
+            max-width: 80%;
+            border-radius: 12px;
+            padding: 10px 14px;
+            word-wrap: break-word;
+            font-size: 14px;
+        }
+        
+        .message.bot {
+            background-color: #e0f2fe;
+            color: #002147;
+            align-self: flex-start;
+            margin-right: auto;
+        }
+        
+        .message.user {
+            background-color: #002147;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        
+        .input-area {
+            padding: 16px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .quick-reply-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .quick-reply-button {
+            background-color: #e5e7eb;
+            color: #374151;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background-color 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        .quick-reply-button:hover {
+            background-color: #d1d5db;
+        }
+        
+        .chat-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            resize: none;
+            font-size: 14px;
+            min-height: 40px;
+            outline: none;
+        }
+        
+        .chat-input:focus {
+            border-color: #d69e2e;
+        }
+        
+        .chat-send-btn {
+            background-color: #B8860B;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .chat-send-btn:hover {
+            background-color: #a0740a;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 16px;
+            background-color: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+        }
+        
+        .contact-form h6 {
+            text-align: center;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        
+        .contact-form p {
+            text-align: center;
+            color: #6b7280;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .chat-window {
+                width: 320px;
+                max-height: 500px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -197,7 +357,7 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="bg-light-gray py-5 sec-1">
+    <div class="bg-light-gray py-5">
         <div class="container">
             <div class="row">
                 <!-- Left Column -->
@@ -207,10 +367,10 @@
                         <div class="highlight-box">
                             FREE GUIDE:
                         </div>
-                        <h2 class="fw-bold mb-3 section-1-heading">
+                        <h2 class="fw-bold mb-3">
                             Avoid the Top 3 Costly<br>
                             Government Contracting<br>
-                            <span class="circle">Mistakes</span> That Disqualify Bids
+                            <u>Mistakes</u> That Disqualify Bids
                         </h2>
                     </div>
 
@@ -221,34 +381,30 @@
                     </div>
 
                     <!-- Webinar Benefits -->
-                    <div class=" text-white p-3 mb-4">
-                        <div class="bg-gold info-box-color-gold">
+                    <div class="bg-gold text-white p-3 mb-4">
                         <h5 class="fw-bold mb-3">Claim Your FREE Seat to Our Exclusive Webinar!</h5>
-                            </div>
-                        <div class="mb-2 info-box-txt">
+                        <div class="mb-2">
                             <i class="fas fa-check-circle checkmark text-white"></i>
                             As a thank you for downloading this guide, you are automatically registered for a FREE seat to my upcoming webinar presented by VCG:
                         </div>
-                        <div class="mb-2 info-box-txt">
+                        <div class="mb-2">
                             <i class="fas fa-check-circle checkmark text-white"></i>
                             "Mastering Government Submissions: Insider Secrets to Avoid Disqualification & Win More Contracts"
                         </div>
-                        <div class="mb-2 info-box-txt">
+                        <div>
                             <i class="fas fa-check-circle checkmark text-white"></i>
                             ($500 Value | Only 25 Seats Available!)
                         </div>
                     </div>
 
                     <!-- Social Proof -->
-                    <div class=" align-items-center mb-4 people-txt-sec">
-                        <div class="people-box-text">
-                            <strong>500+ Students Already Joined It!</strong>
-                        </div>
+                    <div class="d-flex align-items-center mb-4">
                         <div class="profile-pics me-3">
                             <img src="assets/Group 1.png" alt="Student" class="profile-pic">
-                            <span class="transtparent-font-social">+500</span>
                         </div>
-
+                        <div>
+                            <strong>500+ Students Already Joined It!</strong>
+                        </div>
                     </div>
                 </div>
 
@@ -349,32 +505,308 @@
             </div>
         </div>
     </footer>
-<iframe src="chatbot.html" style="position: fixed; bottom: 0; right: 0; width: 100%; height: 100%; border: none; pointer-events: auto; z-index: 9999;"></iframe>
+
+    <!-- Replaced basic chatbot HTML with advanced MAC chatbot -->
+    <div class="chatbot-container">
+        <button class="chat-toggle" id="chatToggle">
+            <i class="fas fa-comments"></i>
+        </button>
+        
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div>
+                    <h5>MAC's AI Assistant</h5>
+                    <div class="online-status">● Online</div>
+                </div>
+                <button class="close-chat" id="closeChat">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be appended here -->
+            </div>
+            
+            <div class="input-area" id="input-area">
+                <div class="quick-reply-buttons" id="quick-reply-buttons">
+                    <!-- Quick reply buttons will be appended here -->
+                </div>
+                <textarea id="user-input" placeholder="Type your message..." rows="1" class="chat-input hidden"></textarea>
+                <button id="send-button" class="chat-send-btn hidden">Send</button>
+            </div>
+
+            <!-- Contact Form (initially hidden) -->
+            <div class="contact-form hidden" id="contact-form">
+                <h6>Request a Consultation</h6>
+                <p>Please provide your details, and MAC's team will get in touch.</p>
+                <input type="text" id="contact-name" placeholder="Your Name">
+                <input type="email" id="contact-email" placeholder="Your Email">
+                <input type="tel" id="contact-phone" placeholder="Your Phone (Optional)">
+                <textarea id="contact-message" placeholder="Briefly describe your needs..." rows="3"></textarea>
+                <button id="submit-contact" class="chat-send-btn">Submit Request</button>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Replaced basic chatbot JavaScript with advanced MAC chatbot functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatToggle = document.getElementById('chatToggle');
+            const chatWindow = document.getElementById('chatWindow');
+            const closeChat = document.getElementById('closeChat');
+            const chatMessages = document.getElementById('chat-messages');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+            const quickReplyButtonsContainer = document.getElementById('quick-reply-buttons');
+            const inputArea = document.getElementById('input-area');
+            const contactForm = document.getElementById('contact-form');
+            const submitContactButton = document.getElementById('submit-contact');
+
+            let conversationState = 'start';
+            let qualificationAnswers = {};
+
+            const faqs = {
+                "What is SAM.gov?": "SAM.gov (System for Award Management) is the primary government system for entities to register to do business with the U.S. government, find contract opportunities, and more.",
+                "What is the FAR?": "The Federal Acquisition Regulation (FAR) is the primary regulation for use by all executive agencies in their acquisition of supplies and services with appropriated funds. It's the rulebook for government contracting.",
+                "What types of contracts does MAC specialize in?": "MAC specializes in navigating complex government contract types, particularly Firm-Fixed Price (F-F-P), Cost-Reimbursement, Time & Materials (T&M), and Labor Hour (LH) contracts, ensuring you understand the risks and requirements.",
+                "How can MAC help with proposal writing?": "MAC provides insider insights on technical proposal writing, helping you avoid common pitfalls like generic submissions and ensuring your proposal directly addresses agency needs.",
+                "How can MAC help with pricing?": "MAC offers expert guidance on precise cost proposal documentation, understanding contract types, and avoiding common pricing errors that lead to disqualification or reduced profits.",
+                "What about compliance?": "MAC helps you navigate the 'small print' of compliance matrices, Section L, and Section M, ensuring your submissions are fully compliant and avoid outright rejection. We also advise on managing scope in personal services contracts."
+            };
+
+            const qualificationQuestions = [
+                {
+                    id: 'goal',
+                    question: "To help me understand if a consultation with MAC is the right fit, could you tell me your primary goal with government contracting?",
+                    options: ["Win my first contract", "Improve proposal success", "Ensure compliance", "Manage current contracts", "Other (type below)"]
+                },
+                {
+                    id: 'revenue',
+                    question: "What is the approximate annual revenue of your business?",
+                    options: ["Under $1M", "$1M - $5M", "$5M - $25M", "Over $25M"]
+                },
+                {
+                    id: 'active',
+                    question: "Are you currently bidding on or actively managing government contracts?",
+                    options: ["Yes, actively bidding/managing", "No, just exploring/starting out"]
+                },
+                {
+                    id: 'area',
+                    question: "What specific area of government contracting are you seeking assistance with?",
+                    options: ["Proposal Writing (Technical)", "Cost/Price Proposals", "Contract Compliance", "Negotiation/Strategy", "Post-Award Management", "Other (type below)"]
+                }
+            ];
+            let currentQuestionIndex = 0;
+
+            function addMessage(text, sender) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', sender);
+                messageElement.textContent = text;
+                chatMessages.appendChild(messageElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function showQuickReplies(options) {
+                quickReplyButtonsContainer.innerHTML = '';
+                userInput.classList.add('hidden');
+                sendButton.classList.add('hidden');
+
+                options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.classList.add('quick-reply-button');
+                    button.textContent = option;
+                    button.onclick = () => handleUserInput(option, true);
+                    quickReplyButtonsContainer.appendChild(button);
+                });
+                quickReplyButtonsContainer.classList.remove('hidden');
+            }
+
+            function hideQuickReplies() {
+                quickReplyButtonsContainer.innerHTML = '';
+                quickReplyButtonsContainer.classList.add('hidden');
+                userInput.classList.remove('hidden');
+                sendButton.classList.remove('hidden');
+            }
+
+            function handleUserInput(message, isQuickReply = false) {
+                if (!isQuickReply && userInput.value.trim() === '') return;
+
+                const userText = isQuickReply ? message : userInput.value.trim();
+                addMessage(userText, 'user');
+                userInput.value = '';
+
+                switch (conversationState) {
+                    case 'start':
+                        if (userText.toLowerCase().includes("question") || userText.toLowerCase().includes("faq")) {
+                            conversationState = 'faq_menu';
+                            const faqOptions = Object.keys(faqs);
+                            addMessage("Great! Here are some common questions I can answer:", 'bot');
+                            showQuickReplies(faqOptions.concat(["Something else (type below)", "Back to main menu"]));
+                            userInput.classList.remove('hidden');
+                            sendButton.classList.remove('hidden');
+                        } else if (userText.toLowerCase().includes("consultation") || userText.toLowerCase().includes("talk to mac")) {
+                            conversationState = 'qualify';
+                            currentQuestionIndex = 0;
+                            addMessage(qualificationQuestions[currentQuestionIndex].question, 'bot');
+                            showQuickReplies(qualificationQuestions[currentQuestionIndex].options);
+                        } else if (userText.toLowerCase().includes("ebook") || userText.toLowerCase().includes("webinar") || userText.toLowerCase().includes("free guide")) {
+                            conversationState = 'start';
+                            addMessage("The free ebook 'Avoid the Top 3 Costly Government Contracting Mistakes' comes with a FREE seat to our exclusive webinar 'Mastering Government Submissions: Insider Secrets to Avoid Disqualification & Win More Contracts' (a $1500 value!). Simply fill out the form on the landing page to get both.", 'bot');
+                            showQuickReplies(["I have a question about government contracting.", "I'm interested in a consultation with MAC."]);
+                        } else {
+                            addMessage("I'm sorry, I didn't quite understand that. Please choose one of the options below or type 'question' or 'consultation'.", 'bot');
+                            showQuickReplies(["I have a question about government contracting.", "I'm interested in a consultation with MAC.", "Tell me more about the free ebook/webinar."]);
+                        }
+                        break;
+
+                    case 'faq_menu':
+                        if (faqs[userText]) {
+                            addMessage(faqs[userText], 'bot');
+                            addMessage("Is there anything else I can help you with?", 'bot');
+                            showQuickReplies(Object.keys(faqs).concat(["Something else (type below)", "Back to main menu"]));
+                            userInput.classList.remove('hidden');
+                            sendButton.classList.remove('hidden');
+                        } else if (userText.toLowerCase().includes("something else")) {
+                            hideQuickReplies();
+                            addMessage("Please type your question, and I'll do my best to answer.", 'bot');
+                            conversationState = 'faq_free_text';
+                        } else if (userText.toLowerCase().includes("back to main menu")) {
+                            addMessage("No problem! How can I help you now?", 'bot');
+                            conversationState = 'start';
+                            showQuickReplies(["I have a question about government contracting.", "I'm interested in a consultation with MAC.", "Tell me more about the free ebook/webinar."]);
+                        } else {
+                            addMessage("I can answer questions about SAM.gov, FAR, contract types, proposal writing, pricing, and compliance. Please choose from the options or type 'something else'.", 'bot');
+                            showQuickReplies(Object.keys(faqs).concat(["Something else (type below)", "Back to main menu"]));
+                            userInput.classList.remove('hidden');
+                            sendButton.classList.remove('hidden');
+                        }
+                        break;
+
+                    case 'faq_free_text':
+                        addMessage("Thanks for your question. While I can answer common FAQs, for detailed or specific inquiries, it's best to consult directly with MAC. Would you like to request a consultation?", 'bot');
+                        showQuickReplies(["Yes, request consultation", "No, back to main menu"]);
+                        conversationState = 'faq_free_text_followup';
+                        break;
+
+                    case 'faq_free_text_followup':
+                        if (userText.toLowerCase().includes("yes")) {
+                            conversationState = 'qualify';
+                            currentQuestionIndex = 0;
+                            addMessage(qualificationQuestions[currentQuestionIndex].question, 'bot');
+                            showQuickReplies(qualificationQuestions[currentQuestionIndex].options);
+                        } else if (userText.toLowerCase().includes("no")) {
+                            addMessage("No problem! How can I help you now?", 'bot');
+                            conversationState = 'start';
+                            showQuickReplies(["I have a question about government contracting.", "I'm interested in a consultation with MAC.", "Tell me more about the free ebook/webinar."]);
+                        } else {
+                            addMessage("Please choose 'Yes, request consultation' or 'No, back to main menu'.", 'bot');
+                            showQuickReplies(["Yes, request consultation", "No, back to main menu"]);
+                        }
+                        break;
+
+                    case 'qualify':
+                        qualificationAnswers[qualificationQuestions[currentQuestionIndex].id] = userText;
+                        currentQuestionIndex++;
+
+                        if (currentQuestionIndex < qualificationQuestions.length) {
+                            addMessage(qualificationQuestions[currentQuestionIndex].question, 'bot');
+                            showQuickReplies(qualificationQuestions[currentQuestionIndex].options);
+                        } else {
+                            hideQuickReplies();
+                            evaluateQualification();
+                        }
+                        break;
+                }
+            }
+
+            function evaluateQualification() {
+                const revenue = qualificationAnswers.revenue;
+                const active = qualificationAnswers.active;
+
+                if (revenue === "Under $1M" && active === "No, just exploring/starting out") {
+                    addMessage("Based on your answers, our free ebook and webinar are likely the best starting point for you to build foundational knowledge. They are packed with valuable insights from MAC's 30 years of experience. Please fill out the form on the landing page to access them!", 'bot');
+                    addMessage("Would you like to ask another question or go back to the main menu?", 'bot');
+                    showQuickReplies(["I have a question about government contracting.", "Back to main menu"]);
+                    conversationState = 'start';
+                } else {
+                    addMessage("Great! Based on your needs, a consultation with MAC would be highly beneficial. MAC provides tailored, insider guidance for businesses like yours.", 'bot');
+                    addMessage("Please provide your contact details below so we can schedule a call.", 'bot');
+                    inputArea.classList.add('hidden');
+                    contactForm.classList.remove('hidden');
+                    conversationState = 'await_contact_details';
+                }
+            }
+
+            function submitContactDetails() {
+                const name = document.getElementById('contact-name').value;
+                const email = document.getElementById('contact-email').value;
+                const phone = document.getElementById('contact-phone').value;
+                const message = document.getElementById('contact-message').value;
+
+                if (!name || !email) {
+                    alert('Please provide your name and email.');
+                    return;
+                }
+
+                console.log("Consultation Request Submitted:");
+                console.log("Name:", name);
+                console.log("Email:", email);
+                console.log("Phone:", phone);
+                console.log("Needs:", message);
+                console.log("Qualification Answers:", qualificationAnswers);
+
+                addMessage("Thank you for your request! MAC's team will review your information and get in touch with you shortly.", 'bot');
+                contactForm.classList.add('hidden');
+                inputArea.classList.remove('hidden');
+                userInput.classList.add('hidden');
+                sendButton.classList.add('hidden');
+                showQuickReplies(["Start a new conversation"]);
+                conversationState = 'start_new_conversation';
+            }
+
+            function startNewConversation() {
+                chatMessages.innerHTML = '';
+                addMessage("Hi there! I'm MAC's AI assistant. How can I help you today?", 'bot');
+                showQuickReplies(["I have a question about government contracting.", "I'm interested in a consultation with MAC.", "Tell me more about the free ebook/webinar."]);
+                conversationState = 'start';
+            }
+
+            // Toggle chat window
+            chatToggle.addEventListener('click', function() {
+                if (chatWindow.style.display === 'none' || chatWindow.style.display === '') {
+                    chatWindow.style.display = 'flex';
+                    chatToggle.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    chatWindow.style.display = 'none';
+                    chatToggle.innerHTML = '<i class="fas fa-comments"></i>';
+                }
+            });
+            
+            // Close chat window
+            closeChat.addEventListener('click', function() {
+                chatWindow.style.display = 'none';
+                chatToggle.innerHTML = '<i class="fas fa-comments"></i>';
+            });
+
+            // Event Listeners
+            sendButton.addEventListener('click', () => handleUserInput(userInput.value));
+            userInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleUserInput(userInput.value);
+                }
+            });
+            submitContactButton.addEventListener('click', submitContactDetails);
+
+            // Initialize chat when opened
+            chatToggle.addEventListener('click', function() {
+                if (chatMessages.innerHTML === '') {
+                    startNewConversation();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
