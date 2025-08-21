@@ -7,6 +7,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        /* Added Sofia Pro font face declarations */
+        @font-face {
+            font-family: 'Sofia Pro';
+            src: url('fonts/SofiaPro-Regular.woff2') format('woff2'),
+                 url('fonts/SofiaPro-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Sofia Pro';
+            src: url('fonts/SofiaPro-Bold.woff2') format('woff2'),
+                 url('fonts/SofiaPro-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Sofia Pro';
+            src: url('fonts/SofiaPro-SemiBold.woff2') format('woff2'),
+                 url('fonts/SofiaPro-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        
         :root {
             --primary-blue: #4a5568;
             --accent-gold: #d69e2e;
@@ -14,25 +42,57 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
+            /* Updated font family to use Sofia Pro with fallbacks */
+            font-family: 'Sofia Pro', sans-serif;
             line-height: 1.6;
         }
         
         .bg-light-gray {
             background-color: #f7fafc;
         }
-        
+        .bg-primary-blue {
+            background-image: url(assets/Group 427318023.png);
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+        .bg-light-gray.py-5.sec-1 {
+            background-image: url("assets/asdasdsad.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: -90px;
+        }
+        .bg-primary-blue.text-white.p-4.rounded {
+            padding: 160px 30px 60px !important;
+        }
         .text-gold {
             color: var(--accent-gold);
         }
-        
+        h2.fw-bold.mb-3.section-1-heading {
+            font-size: 40px;
+        }
+        .bg-light-gray.py-5.sec-1 .container {
+            margin-top: 110px;
+        }
+      .bg-gold.info-box-color-gold h5 {
+            font-weight: 400 !important;
+            font-size: 32px;
+            padding: 2px 8px;
+        }
+        .mb-2.info-box-txt {
+            color: #000;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
         .bg-gold {
-            background-color: var(--accent-gold);
+        background-color: #B8860B;
+        width: 87%;
+        }
+        nav.navbar.navbar-light.bg-white.py-3 {
+            background-color: transparent !important;
         }
         
-        .bg-primary-blue {
-            background-color: var(--primary-blue);
-        }
         
         .btn-gold {
             background-color: var(--accent-gold);
@@ -77,28 +137,35 @@
             font-size: 3rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
-        
+        .people-box-text strong {
+            font-size: 35px;
+        }
         .profile-pics {
             display: flex;
             margin-left: -10px;
         }
         
         .profile-pic {
-            border: 3px solid white;
             margin-left: -10px;
         }
         
         .highlight-box {
             background: linear-gradient(135deg, var(--accent-gold), #e6a532);
             color: white;
-            padding: 8px 16px;
+            padding: 5px 6px;
             display: inline-block;
             font-weight: bold;
             margin-bottom: 15px;
+            font-size: 35px;
         }
-        
+        .circle {
+              border: 2px solid black;  
+              border-radius: 50%;       
+              padding: 2px 10px;         
+              display: inline-block;    
+            }
         .checkmark {
-            color: var(--accent-gold);
+            color: var(--accent-gold) !important;
             margin-right: 10px;
         }
         
@@ -123,7 +190,7 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="bg-light-gray py-5">
+    <div class="bg-light-gray py-5 sec-1">
         <div class="container">
             <div class="row">
                 <!-- Left Column -->
@@ -133,10 +200,10 @@
                         <div class="highlight-box">
                             FREE GUIDE:
                         </div>
-                        <h2 class="fw-bold mb-3">
+                        <h2 class="fw-bold mb-3 section-1-heading">
                             Avoid the Top 3 Costly<br>
                             Government Contracting<br>
-                            <u>Mistakes</u> That Disqualify Bids
+                            <span class="circle">Mistakes</span> That Disqualify Bids
                         </h2>
                     </div>
 
@@ -147,30 +214,33 @@
                     </div>
 
                     <!-- Webinar Benefits -->
-                    <div class="bg-gold text-white p-3 mb-4">
+                    <div class=" text-white p-3 mb-4">
+                        <div class="bg-gold info-box-color-gold">
                         <h5 class="fw-bold mb-3">Claim Your FREE Seat to Our Exclusive Webinar!</h5>
-                        <div class="mb-2">
+                            </div>
+                        <div class="mb-2 info-box-txt">
                             <i class="fas fa-check-circle checkmark text-white"></i>
                             As a thank you for downloading this guide, you are automatically registered for a FREE seat to my upcoming webinar presented by VCG:
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-2 info-box-txt">
                             <i class="fas fa-check-circle checkmark text-white"></i>
                             "Mastering Government Submissions: Insider Secrets to Avoid Disqualification & Win More Contracts"
                         </div>
-                        <div>
+                        <div class="mb-2 info-box-txt">
                             <i class="fas fa-check-circle checkmark text-white"></i>
                             ($500 Value | Only 25 Seats Available!)
                         </div>
                     </div>
 
                     <!-- Social Proof -->
-                    <div class="d-flex align-items-center mb-4">
+                    <div class=" align-items-center mb-4 people-txt-sec">
+                        <div class="people-box-text">
+                            <strong>500+ Students Already Joined It!</strong>
+                        </div>
                         <div class="profile-pics me-3">
                             <img src="assets/Group 1.png" alt="Student" class="profile-pic">
                         </div>
-                        <div>
-                            <strong>500+ Students Already Joined It!</strong>
-                        </div>
+
                     </div>
                 </div>
 
@@ -275,3 +345,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
